@@ -1,0 +1,75 @@
+const drawerBtns = document.querySelectorAll('.js-toggle-drawer');
+const siteDrawers = document.querySelectorAll('.site-drawer');
+const siteOverlay = document.querySelector('.site-overlay');
+let activeDrawer = "";
+
+
+
+drawerBtns.forEach(btn => {
+btn.addEventListener('click', ()=>{
+activeDrawer = document.querySelector(`.site-drawer[data-source="${btn.dataset.target}"]`);
+if (!activeDrawer.hasAttribute("enabled")) {
+closeAllDrawers(activeDrawer)
+openDrawer(activeDrawer);
+} else {
+closeDrawer(activeDrawer, true);
+}
+drawerBtns.forEach(item=>{
+if(btn.dataset.drawertarget != item.dataset.source  item.hasAttribute("enabled")){
+closeDrawer(item, false);
+}
+})
+})
+})
+
+siteOverlay.addEventListener("click", function(){closeDrawer(activeDrawer,true)});
+
+function closeAllDrawers(exception) {
+siteDrawers.forEach(drawer => {
+if (drawer != exception){
+closeDrawer(drawer, true);
+}
+})
+}
+function openDrawer(drawer) {
+drawer.setAttribute("enabled", "");
+document.body.classList.add("active-drawer")
+document.body.setAttribute("show-overlay", `${drawer.dataset.overlay}`);
+}
+
+function closeDrawer(drawer, enableScroll) {
+drawer.removeAttribute("enabled");
+document.body.setAttribute("show-overlay", "false");
+if(enableScroll){
+document.body.classList.remove("active-drawer")
+}
+
+}
+
+
+
+
+
+
+\// STICKY HEADER
+
+
+const body = document.body;
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+const currentScroll = window.pageYOffset;
+if (currentScroll = 0) {
+body.classList.remove("scroll-up");
+return;
+}
+
+if (currentScroll > lastScroll  !body.classList.contains("scroll-down")) {
+body.classList.remove("scroll-up");
+body.classList.add("scroll-down");
+} else if (currentScroll  lastScroll  body.classList.contains("scroll-down")) {
+body.classList.remove("scroll-down");
+body.classList.add("scroll-up");
+}
+lastScroll = currentScroll;
+});

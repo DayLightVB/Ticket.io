@@ -1,0 +1,5 @@
+en:
+  promocode:
+    currency:
+      error: "Promo-Code is not exist or Promo-Code Currency doesn't match with Event Currency"
+  success_bought_ticket_via_promo_code: "Success, You bought a ticket"
