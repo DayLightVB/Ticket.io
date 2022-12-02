@@ -19,7 +19,7 @@
       - if alert
         %p.alert.alert-danger= alert
       = yield
-
+    = render partial: "shared/footer"
 
 :javascript
   const drawerBtns = document.querySelectorAll('.js-toggle-drawer');

@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   resources :webhooks, only: [:create]
 
+  namespace :api do
+    resources :events, only: %i[index show create destroy update]
+  end
+
   get 'checkout/create', to: 'checkout#create'
   get 'success', to: 'checkout#success'
   get 'cancel', to: 'checkout#cancel'
