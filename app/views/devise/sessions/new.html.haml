@@ -1,20 +1,22 @@
-.card.card-10.col-md-10
-  .card-body
-    %h2 Log in
+%section.section.registration-section.flex.flex--columns.flex--columns-even-2
+  .registration-section__media
+    = image_tag("login-art.jpg")
+  .flex-grow.flex.direction-column.items-center.justify-center.py-400
+    %h1.heading.w-100.text-center.mb-400 Login
+    %form.w-100.page-width.mb-300
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        = f.email_field :email, class:'form-control', autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
-        = f.password_field :password, class:'form-control', autocomplete: "current-password"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit "Login", class:'btn btn-success btn-lg mt-2'
-  .p.mt-3
-    = link_to "Sign up", new_registration_path(resource_name), class:'btn btn-secondary'
+      .input-wrapper.mb-400
+        %label.fs-300.mb-50.fw-medium Email
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .input-wrapper.mb-400
+        %label.fs-300.mb-50.fw-medium Password
+        = f.password_field :password, autocomplete: "current-password"
+      .btns-wrapper.flex.items-center.mb-400.mr-50
+        = link_to "Google", omniauth_authorize_path(resource_name, resource_class.omniauth_providers.last), class:'button', method: :post
+        = f.submit "Login", class:'button'
+      %hr.border-b.opacity-25/
+    %p.fw-medium
+      %span.fs-200.mr-100 Already have an Account?
+      %a.text-accent-3.fs-200.text-underline{:href=>'/users/sign_up'} Sign Up
 
-  = render "devise/shared/links"
+

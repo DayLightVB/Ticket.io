@@ -1,21 +1,3 @@
-//= require jquery3
-//= require jquery_ujs
-//= require popper
-//= require tether
-//= require bootstrap-sprockets
-//= require turbolinks
-//= require chosen
-//= require chosen-jquery
-//= require_tree .
-
-$(document).on('ready page:load', function () {
-$('#event_tag_ids').chosen({
-    allow_single_deselect: true,
-    width: '100%'
-    })
-});
-
-
 const drawerBtns = document.querySelectorAll('.js-toggle-drawer');
 const siteDrawers = document.querySelectorAll('.site-drawer');
 const siteOverlay = document.querySelector('.site-overlay');
@@ -64,7 +46,14 @@ function closeDrawer(drawer, enableScroll) {
 
 }
 
+
+
+
+
+
 // STICKY HEADER
+
+
 const body = document.body;
 let lastScroll = 0;
 
