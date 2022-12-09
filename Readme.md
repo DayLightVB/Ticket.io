@@ -1,6 +1,9 @@
 ## **Production site:**
 ## https://ticketsell.herokuapp.com/
 
+## **Link with documentation:**
+## https://docs.google.com/document/d/1J29xwNymtIpXQr9Qv-V1UxCkxHEnNSKsbUBqG3-q3-I/edit?usp=sharing
+
 ## **Installation**
 
 * To start the project locally follow requirements below
